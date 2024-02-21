@@ -1,0 +1,24 @@
+1、日志技术的优势：
+    ● 输出位置：可以为文件/数据库（传统的只能控制台）
+    ● 取消日志：不需要修改代码，灵活性比较好（传统的需要修改代码，灵活性较差）
+    ● 多线程：性能较好（传统的性能较差）
+
+2、体系结构：
+    （1）常见的日志规范接口
+        ● Commons Logging：简称：JCL
+        ● Simple Logging Facade for Java：简称：slf4j
+
+    （2）常见的日志实现框架
+        ● Log4j
+        ● JUL（java.util.logging）
+        ● Logback：为替代Log4j，性能更好，实现了slf4j规范（重点学，其它大同小异）
+        ● ......
+
+    （3） 注：
+        ● 日志规范：一些接口，提供给日志的实现框架设计的标准。
+        ● 日志框架：牛人或第三方公司已经做好的日志记录实现代码
+
+3、Logback分为三个技术模块
+    ● logback-core：为其它两个模块奠定了基础，必须有。
+    ● logback-classic：是log4j的一个改良版本，同时完整实现了slf4j API
+    ● logback-access：它能与Tomcat和Jetty等Servlet容器集成，以提供HTTP访问日志功能

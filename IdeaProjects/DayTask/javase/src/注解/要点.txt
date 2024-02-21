@@ -1,0 +1,37 @@
+1、基本概念
+    （1）Java注解（Annotation）又称Java标注，是JDK5引入的一种机制
+    （2）可以进行注解的对象有：类、构造器、方法、成员变量、参数等都可以被注解进行标注
+    （3）作用：对类、方法、成员变量等做标记，然后进行特殊处理
+
+2、自定义注解
+    （1）格式：（属性类型：java支持的数据类型基本上都支持；默认public，所以public可不写，类似接口）
+        public @interface 注解名称 {
+            public 属性类型 属性名() default 默认值;
+        }
+    （2）特殊属性
+        ● value属性，如果只有一个value属性或者其它属性有默认值的情况下，使用value属性的时候可以省略value名称不写
+        ● 如果有多个属性，且多个属性没有默认值，则value名称是不可以省略的
+
+3、元注解：就是注解注解的注解
+    （1）元注解有两个：
+        ● @Target：约束自定义注解只能在哪些地方使用（可用值定义在ElementType枚举类中）；常用值如下：
+           ● TYPE：类、接口
+           ● FIELD：成员变量
+           ● METHOD：成员方法
+           ● PARAMETER：方法的参数
+           ● CONSTRUCTOR：构造器
+           ● LOCAL_VARIABLE：局部变量
+        ● @Retention：声明注解的生命周期（可用值定义在RetentionPolicy枚举类中）；常用值如下：
+            ● SOURCE：注解只作用在源码阶段，生成的字节码文件中不存在(该注解)
+            ● CLASS：注解作用在源码阶段、字节码文件阶段，运行阶段不存在（默认值）
+            ● RUNTIME：注解作用在源码阶段、字节码文件阶段、运行阶段（开发常用）
+
+4、注解的解析：注解的操作中经常需要进行解析，如判断是否存在注解，存在就解析出内容
+    （1）与注解解析相关的接口
+        ● Annotation：注解的顶级接口，注解都是此类型的对象
+        ● AnnotatedElement：该接口定义了注解解析相关解析方法
+            ● Annotation[] getDeclaredAnnotations()  获得当前对象上使用的所有注解
+            ● T getDeclaredAnnotation(Class<Annotation> annotationClass)：根据注解类型获得相应注解对象
+            ● boolean isAnnotationPresent(Class<Annotation> annotationClass)：判断是否使用了指定注解
+    （2）使用的类成分Class、Method、Field、Constructor，都实现了AnnotatedElement接口，都拥有解析注解的能力
+    （3）解析注解的技巧：注解在哪个成分上，就先拿哪个成分对象，再拿该成分对象上面的注解

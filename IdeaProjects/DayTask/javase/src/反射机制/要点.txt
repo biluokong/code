@@ -1,0 +1,63 @@
+一、使用发射技术获取构造器对象并使用
+1、第一步：获取Class类的对象
+    （1）方法：
+        ● 在源代码阶段（Java文件 --> Class文件(字节码文件)）：Class类的静态方法 forName(String className)
+        ● Class对象阶段（编译阶段，在内存中）：类名.class
+        ● Runtime运行阶段（已实例化对象）：对象.getClass()
+
+2、第二步：获得Constructor对象
+    （1）Class类获取构造器的方法
+        ● getConstructors()             返回所有构造器对象的数组（只能拿public的）
+        ● getDeclaredConstructors()     返回所有构造器对象的数组，存在就能拿到
+        ● getConstructor(Class<?>... parameterTypes)    返回单个构造器对象（只能public的，参数为形参的类型.class）
+        ● getDeclaredConstructor(Class<?>... parameterTypes)    返回单个构造器对象，存在就能拿到
+
+3、第三步：创建对象
+    （1）Constructor类中用于创建对象的方法
+            ● T newInstance(Object... init-args)        根据指定的构造器创建对象（参数为构造方法需传入参数）
+            ● public void setAccessible(boolean flag)   设置为true时，表示取消访问检查，进行暴力反射（私有构造器只能暴力反射）
+    （2）反射会破坏封装性，私有的也可以执行了
+
+二、使用发射技术获取成员变量对象并使用
+1、获得Class对象
+
+2、获得Field对象
+    （1）Class类中用于获取成员变量的方法
+        ● getFields()                   返回所有成员变量对象的数组（只能拿public的）
+        ● getDeclaredFields()           返回所有成员变量对象的数组，存在就能拿到
+        ● getField(String name)         返回单个成员变量对象（只能拿public的）
+        ● getDeclaredField(String name) 返回单个成员变量对象，存在就能拿到
+
+3、赋值或者获取值
+    （1）Field的方法
+        ● void set(Object obj, Object value)    给指定的实例对象的Field对象属性注入数据
+        ● Object get(Object obj)                获取指定实例对象的Field对象属性的值
+        ● void setAccessible(true)              为true时暴力发射，可以直接访问私有类型的属性
+        ● Class getType()                       获取Filed对象属性的类型
+        ● String getName()                      获取Filed对象属性的名称
+
+三、使用反射技术获取方法对象并使用
+1、获得Class对象
+
+2、获得Method对象
+    （1）Class类中用于获取成员方法的方法
+        ● getMethods()
+        ● getDeclaredMethods()
+        ● getMethod(String name, Class<?>... parameterTypes)    获得有指定参数类型，并且有指定方法名的方法对象
+        ● getDeclaredMethod(String name, Class<?>... parameterTypes)    （可以只写第一个参数）
+
+3、调用成员方法的方法（Method类的方法）
+    （1）Object invoke(Object obj, Object... args)：无结果返回null
+         ● 参数一：被调用方法的实例对象
+         ● 参数而：调用方法时传递的实际参数
+
+四、发射的作用
+    （1）作用
+        ● 可以在运行时得到一个类的全部成分然后可以进行操作
+        ● 可以破坏封装性（突出）
+        ● 可以破坏泛型的约束性（突出）
+        ● 重要用途是适合做Java高级框架
+
+    （2）例子：绕过编译阶段为集合添加数据、做企业级通用框架
+        ● 集合的泛型机制只能在编译阶段约束集合只能操作某种数据类型；在进1入运行阶段时，集合的泛型已被擦除，泛型相当于是Object类型
+        ● 而反射是作用在运行时的技术，所以可以使用反射在集合内存入任意类型的数据

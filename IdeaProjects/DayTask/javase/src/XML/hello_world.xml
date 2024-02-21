@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--version：XML默认的版本号码、该属性必须存在；encoding：此XML文件的编码-->
+<!--导入DTD约束文档-->
+<!--<!DOCTYPE 书架 SYSTEM "data.dtd"> -->
+<!--<书架>-->
+<!--    <书>-->
+<!--        <书名>java从入门到入坟</书名>-->
+<!--        <作者>delo</作者>-->
+<!--        &lt;!&ndash;不能约束具体数据类型&ndash;&gt;-->
+<!--        <售价>很贵</售价> -->
+<!--    </书>-->
+<!--</书架>-->
+
+<!--xmlns：基本位置；xsi：具体的位置-->
+<书架 xmlns="http://www.nibiluo.com"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.nibiluo.com data.xsd">
+    <书>
+        <书名>java从入门到上天</书名>
+        <作者>李浪</作者>
+        <售价>3.3</售价>
+    </书>
+    <书>
+        <书名>java从入门到入坟</书名>
+        <作者>李浩</作者>
+        <售价>10.4</售价>
+    </书>
+</书架>

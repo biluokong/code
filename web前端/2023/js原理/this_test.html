@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const food = {
+      name: 'ddd',
+      eat() {
+        console.log('helo')
+      }
+    }
+
+    const new_food = Object.create(food)
+    console.log(new_food.name === food.name)
+  </script>
+</body>
+
+</html>

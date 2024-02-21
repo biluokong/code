@@ -1,0 +1,42 @@
+package 网络编程.testTCP;
+
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.PrintStream;
+import java.net.Socket;
+import java.util.Scanner;
+
+/**
+ * 多发多收
+ *      这里不能实现多客户端发送到一个服务端；因为服务端只建立了一个socket通信管道（只有一个线程）
+ *          原因：目前服务端是单线程的，每次只能处理一个客户端的消息·
+ */
+public class ClientDemo11 {
+    public static void main(String[] args) {
+        Socket socket = null;
+        try {
+            //1、创建Socket通信管道请求服务器的连接
+            socket = new Socket("127.0.0.1", 7777);
+
+            //2、从socket通信管道中得到一个字节输出流：方法获得的是低级流，为提高效率，用高级流
+            OutputStream os = socket.getOutputStream();
+
+            //3、把低级的字节流对象包装成打印流
+            PrintStream ps = new PrintStream(os);
+
+            Scanner sc = new Scanner(System.in);
+            //4、发送消息
+            while (true) {
+                System.out.println("请说：");
+                String msg = sc.nextLine();
+                ps.println(msg);
+                ps.flush();
+            }
+            //5、关闭资源：不用使用
+            //因为客户端关闭了管道，服务端也会关闭(双向的)，且可能在客户端消息传输的过程中就把管道关闭了，造成数据丢失
+            //socket.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+}

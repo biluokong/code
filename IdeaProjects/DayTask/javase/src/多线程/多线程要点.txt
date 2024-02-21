@@ -1,0 +1,88 @@
+1、定义一个类继承Thread类，重写run方法
+    （1）优点：编码简单
+    （2）缺点：存在单继承的极限，不便于扩展
+
+2、实现Runnable接口，重写run方法
+    （1）定义类实现接口，重写run方法
+        ● 优点：java可以多实现，便于继续继承和实现
+        ● 缺点：不能返回执行结果
+    （1）用匿名内部类的方式实现接口，重写run方法
+        ● 优点：使用方便灵活，不需要定义类
+        ● 缺点：不能返回执行结果和重复调用
+
+3、JDK5提供了Callable、FutureTask接口实现多线程
+    （1）优点：可以返回执行的结果；实现的接口，扩展性强
+    （2）缺点：编码稍微复杂一些
+    （3）使用方式：
+        ● 实现Callable接口后，重写call方法
+        ● 用FutureTask把Callable对象封装成线程任务对象
+        ● 把线程任务对象交给Thread处理
+        ● 调用Thread的start方法启动线程，执行任务
+        ● 线程执行完毕后，通过FutureTask的get方法获取任务执行的结果
+
+4、锁对象
+    （1）锁对象用任意唯一对象（如：字符串常量）不好：会影响其它无关线程的执行
+    （2）锁对象的规范要求
+        ● 建议使用共享资源作为锁对象
+        ● 对应实例方法建议使用this作为锁对象
+        ● 对应静态方法建议使用字节码(类名.class)对象作为锁对象
+
+5、解决线程安全
+    ● 使用同步代码块（锁的范围比方法小，效率高些）
+    ● 使用同步方法：synchronized修饰方法（其有隐式锁对象，实例方法默认锁对象为this；静态方法默认用类名.class作为锁对象）
+    ● (JDK5后提供)使用Lock锁：Lock是接口，使用起来更加灵活、方便；其实现类为ReentrantLock
+
+6、线程通信：通过wait、notify、notifyAll方法实现（如生产者和消费者模式）
+
+7、线程池：是一个可以复用线程的技术
+    （1）优点：不用在用户每次发送请求时创建新的线程来处理（创建新线程的开销是很大的），提高了系统的性能。
+    （2）线程池：JDk5提供了代表线程池的接口：ExecutorService
+    （3）获得线程池对象的方法：
+        ● 使用ExecutorService的实现类ThreadPoolExecutor直接创建一个线程池对象
+        ● 使用Executors（线程池的工具类）调用方法返回不同特点的线程池对象
+    （4）ThreadPoolExecutor(int corePoolSize, int maximumPoolSize, TimeUnit unit, long keepAliveTimes,
+    BlockingQueue<Runnable> workQueue, ThreadFactory threadFactory, RejectedExecutionHandler handle)
+        ● corePoolSize：指定线程池的线程数量（核心线程：正式工；正式工+临时工 = maxSize）
+        ● maximumPoolSize：指定线程池可支持的最大线程数（任务过多时可以招临时工，用完可以删除）
+        ● keepAliveTime：指定临时线程的最大存活时间（规定时间内没有多余的任务，把临时工开除）
+        ● unit：指定存活时间的单位(秒、分、时、天)
+        ● workQueue：指定任务队列（不能为null）
+        ● threadFactory：指定用哪个线程工厂创建线程（不能为null，招人的人力资源公司）
+        ● handler：指定线程忙、任务满的时候，新任务来了怎么办（不能为null；任务策略）
+           ● ThreadPoolExecutor.AbortPolicy：(默认的策略)丢弃任务并抛出RejectedException异常
+           ● ThreadPoolExecutor.DiscardPolicy：丢弃任务，但是不抛出异常（不推荐的做法）
+           ● .DiscardOldestPolicy：抛弃队列中等待最久的任务，然后把当前任务加入到队列中
+           ● .CallerRunsPolicy：由主线程负责调用任务的run()方法，从而绕过线程池直接执行
+    （5）常见面试题
+        ● 临时线程声明时候创建：新任务提交时发现核心线程都在忙，且任务队列也满了，并且可还以创建临时线程时才会创建
+        ● 什么时候会开始拒绝任务：核心线程和临时线程都在忙，任务队列也满了，新的任务过来时才会开始任务拒绝
+
+8、定时器：一种控制任务延时调用或周期调用的技术（作用：闹钟、定时邮件发送）
+    （1）实现方式：Timer 或 ScheduledExecutorService
+    （2）Timer存在的问题：
+        ● Timer是单线程，处理多个任务按照顺序执行，延时时会与设置的定时器的时间有出入（如后一个任务等待前一个任务完成）
+        ● 可能因为其中的某个任务的异常使Timer线程死掉，从而影响后续任务执行
+    （3）ScheduledExecutorService的优点（JDK5后引入，目的为解决Timer的缺陷，其内部为线程池）
+        ● 基于线程池，某个任务的执行情况不会影响到其它定时任务的执行
+
+9、并发与并行：正在运行的程序就是一个独立的进程，线程是属于进程的，多个线程其实是并发和并行同时进行的
+    （1）并发：CPU分时轮询的执行线程
+        ● CPU同时处理线程的数量是有限的
+        ● CPU会轮询为系统的每个线程服务，由于CPU切换的速度很快，给我们的感受就是这些线程在同时进行，这就是并发
+    （2）并行：在同一时刻，同时有多个线程在被CPU处理并执行（同一时刻同时在执行）
+
+10、线程生命周期
+    （1）线程的状态：就是线程从生到死的过程，以及中间经历的各种状态及状态转换。
+    （2）JAVA线程的状态：总共定义了6种状态，在Thead类的内部枚举类中
+        ● New新建(状态) --> start()方法 --> Runnable可运行(状态) --> 执行完毕/出现异常 --> Terminated被终止(状态)
+
+        ● Runnable可运行(状态) --> 未获得锁对象 --> Blocked锁堵塞(状态) --> 获得锁对象 --> Runnable可运行(状态)
+
+        ● Runnable可运行(状态) --> 获得锁的对象调用了wait()方法 --> Waiting无限等待(状态)
+        ● Waiting无限等待(状态) --> 被其它线程notify，但未获得锁对象 --> Blocked锁堵塞(状态)
+        ● Waiting无限等待(状态) --> 被其它线程notify，并未获得锁对象 --> Runnable可运行(状态)
+
+        ● Runnable可运行(状态) --> sleep(毫秒)(其不会释放锁) / wait(毫秒)(会释放锁) --> Timed Waiting 计时等待(状态)
+        ● Timed Waiting 计时等待(状态) --> sleep时间到 / wait时间到，并得到锁对象 / wait时间没到，被其它线程notify，并得到锁对象 --> Runnable可运行(状态)
+        ● Timed Waiting 计时等待(状态) --> wait时间到，没得到锁对象 / wait时间没到，被其它线程notify，没得到锁对象 --> Blocked锁堵塞(状态)
+    （3）线程的六种状态：新建状态(NEW)、就绪状态(RUNNABLE)、堵塞状态(BLOCKED)、等待状态(WAITING)、计时状态(TIMED_WAITING)、结束状态(TERMINATED)

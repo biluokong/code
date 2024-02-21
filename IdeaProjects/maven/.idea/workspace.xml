@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2bcea040-4c71-4baf-909c-5f9e73acb08a" name="变更" comment="">
+      <change afterPath="$PROJECT_DIR$/../实验/team-practice/src/algorithm/Test127.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../实验/team-practice/src/algorithm/Test133.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../实验/team-practice/src/algorithm/Test1514.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../实验/team-practice/src/algorithm/Test200.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../实验/team-practice/src/algorithm/Test207.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../实验/team-practice/src/algorithm/Test688.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../实验/测试/src/com/bjpowernode/javase/MarkdownImageDownloader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../实验/team-practice/src/algorithm/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/../实验/team-practice/src/algorithm/Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../项目的对应压缩包/自制tool/MarkdownImageDownloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/../项目的对应压缩包/自制tool/MarkdownImageDownloader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PycharmProjects/python实验/python入门/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../PycharmProjects/python实验/python入门/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../web前端/2023/作业.rar" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="D:\maven_resp" />
+        <option name="mavenHome" value="C:/dev/apache-maven-3.8.6" />
+        <option name="useMavenConfig" value="true" />
+        <option name="userSettingsFile" value="C:\dev\apache-maven-3.8.6\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2DkT0GmtO5Jr7ZVPxV2mDkiM4gr" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "11",
+    "last_opened_file_path": "G:/all/IdeaProjects/maven",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "模块",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "MavenSettings",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager" selected="JUnit.JDBCTest.DruidTest">
+    <configuration name="Hello (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Hello" />
+      <module name="maven-test01" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JDBCTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="JDBCTest" />
+      <module name="maven-test01" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Test" />
+      <module name="maven-test01" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JDBCTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="maven-test01" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="JDBCTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JDBCTest.DruidTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="maven-test01" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="JDBCTest" />
+      <option name="METHOD_NAME" value="DruidTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.JDBCTest.DruidTest" />
+        <item itemvalue="应用程序.Test" />
+        <item itemvalue="JUnit.JDBCTest" />
+        <item itemvalue="应用程序.JDBCTest" />
+        <item itemvalue="应用程序.Hello (1)" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="2bcea040-4c71-4baf-909c-5f9e73acb08a" name="变更" comment="" />
+      <created>1661241859176</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1661241859176</updated>
+      <workItem from="1661241860378" duration="2194000" />
+      <workItem from="1661246914132" duration="12805000" />
+      <workItem from="1661259797685" duration="91000" />
+      <workItem from="1661259901192" duration="4092000" />
+      <workItem from="1661340105032" duration="7247000" />
+      <workItem from="1661350431754" duration="97000" />
+      <workItem from="1662903324838" duration="40000" />
+      <workItem from="1663084875585" duration="121000" />
+      <workItem from="1664206540374" duration="35000" />
+      <workItem from="1668869214781" duration="16000" />
+      <workItem from="1668873194018" duration="68000" />
+      <workItem from="1673874559784" duration="25000" />
+      <workItem from="1685370450539" duration="38000" />
+      <workItem from="1708408199368" duration="55000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
